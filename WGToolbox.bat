@@ -1,4 +1,23 @@
 @echo off
+cls
+ver | findstr /i "10" > nul
+if %errorlevel% == 0 (
+  echo Windows 10 detected.
+  goto menu
+  cls
+) else (
+  ver | findstr /i "11" > nul
+  if %errorlevel% == 0 (
+    echo Windows 11 detected.
+    goto menu
+    cls
+  ) else (
+    echo Warning: The version of Windows you are using does not support winget and Winget Toolbox needs winget to work.
+  )
+)
+
+pause
+
 title Winget Toolbox
 cls
 color 4F  
